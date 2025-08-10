@@ -33,6 +33,8 @@ Model Architecture & Inputs
 ONNX model loaded successfully showing dual-input architecture: image_input (1,256,256,1) for candlestick patterns and tabular_input (1,15) for technical indicators
 Live Analysis Output
 
+Onnx.png
+
 Historical pattern detection running on BTC-USD with 1 year of daily data, showing data fetching process and fallback to sample data when Yahoo Finance is unavailable
 Trade Alert Generation
 
