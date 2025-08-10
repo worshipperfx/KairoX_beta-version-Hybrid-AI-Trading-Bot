@@ -50,7 +50,7 @@ Note: Screenshots show the complete workflow from model loading → data fetchin
 Quick Start
 Installation
 bash# Clone the repository
-git clone https://github.com/your-username/ai-trading-pattern-detector.git
+git clone https://github.com/worshipperfx/KairoX_beta-version-Hybrid-AI-Trading-Bot.git
 cd ai-trading-pattern-detector
 
 # Install dependencies
