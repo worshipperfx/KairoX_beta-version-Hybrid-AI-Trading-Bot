@@ -40,6 +40,7 @@ Trade Alert Generation
 
 Final trade signal output with BUY recommendation, 100% confidence probability, entry price of $43,949, and confirmation that 7 candlesticks were analyzed
 Kaggle Training Results
+![Trade_Signal](Output.PNG)
 
 Training session in Kaggle environment showing successful model compilation, training progress over 10 epochs, and final test accuracy metrics
 
