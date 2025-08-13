@@ -136,47 +136,18 @@ Resize to 256×256 using OpenCV
 Add batch and channel dimensions
 
 ```
-Tabular Input (1, 15)
-pythonfeatures = [
+### Tabular Input `(1, 15)`
+
+**Python**
+```python
+features = [
     "open", "high", "low", "close", "volume",
-    "50EMA", "200EMA", "800EMA", 
+    "50EMA", "200EMA", "800EMA",
     "RSI", "MACD", "MACD_Signal",
-    "Bollinger_Upper", "Bollinger_Lower", 
+    "Bollinger_Upper", "Bollinger_Lower",
     "ATR", "ADX"
 ]
-Missing indicators are automatically filled with 0.0
 
-Training & Export
-1. Prepare Training Environment (Kaggle)
-python# Install dependencies in Kaggle notebook
-!pip install tf2onnx tensorflow scikit-learn
-2. Train the Model
-python# Load and preprocess data
-tabular_data = load_trading_data()
-image_data = load_pattern_images()
-
-# Build dual-input model
-model = create_multimodal_model()
-model.fit([images, tabular], labels, epochs=10)
-
-# Save Keras model
-model.save("trading_model.h5")
-3. Export to ONNX
-pythonimport tf2onnx
-
-# Define input signatures
-input_signature = [
-    tf.TensorSpec((None, 256, 256, 1), tf.float32, name="image_input"),
-    tf.TensorSpec((None, 15), tf.float32, name="tabular_input")
-]
-
-# Convert to ONNX
-onnx_model, _ = tf2onnx.convert.from_keras(
-    model, 
-    input_signature=input_signature, 
-    opset=13
-)
-onnx.save_model(onnx_model, "trading_model.onnx")
 
 ## Troubleshooting
 
