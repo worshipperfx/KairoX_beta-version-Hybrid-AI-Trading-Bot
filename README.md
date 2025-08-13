@@ -5,7 +5,7 @@ Multi-modal trading research bot that detects candlestick patterns from historic
 RISK DISCLAIMER: Trading and investing in financial markets involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. This software is provided for research and educational purposes only. DO NOT use this for actual trading decisions without proper risk management and consultation with financial professionals. The creators of this software are not responsible for any financial losses incurred through its use. USE AT YOUR OWN RISK
 
 
-Features
+## Features
 
 Multi-modal AI: Combines candlestick pattern images with technical indicators
 Universal deployment: ONNX model runs anywhere (Python, C++, JavaScript, mobile)
@@ -15,19 +15,19 @@ Robust data handling: Automatic fallbacks when external APIs fail
 Real market data: Historical analysis using yfinance integration
 
 
-Architecture
+## Architecture
 Historical Data (yfinance) → Image Builder → ONNX Model → Trade Decision
                           ↘ Feature Engine ↗
-Model Inputs:
+## Model Inputs:
 
 image_input: (1, 256, 256, 1) - Grayscale candlestick pattern
 tabular_input: (1, 15) - Technical indicators & OHLC data
 
-Output:
+## Output:
 
 Trade signal (BUY/SELL) with confidence probability
 
-Screenshots & Results
+## Screenshots & Results
 Model Architecture & Inputs
 
 ONNX model loaded successfully showing dual-input architecture: image_input (1,256,256,1) for candlestick patterns and tabular_input (1,15) for technical indicators
@@ -47,11 +47,13 @@ Training session in Kaggle environment showing successful model compilation, tra
 Note: Screenshots show the complete workflow from model loading → data fetching → pattern analysis → trade signal generation. The sample data fallback ensures the system works even when external APIs are unavailable
 
 
-Quick Start
+## Quick Start
 Installation
 bash# Clone the repository
+```git
 git clone https://github.com/worshipperfx/KairoX_beta-version-Hybrid-AI-Trading-Bot.git
 cd ai-trading-pattern-detector
+```
 
 # Install dependencies
 pip install -r requirements.txt
@@ -60,14 +62,20 @@ pip install -r requirements.txt
 pip install onnxruntime yfinance numpy pandas opencv-python
 Run Analysis
 bash# Analyze Bitcoin patterns (1 year of daily data)
-python bot/bot.py --symbol BTC-USD --timeframe 1d --period 1y
+```python
+python trading_bot.py --symbol BTC-USD --timeframe 1d --period 1y
+```
 
 # Analyze EUR/USD forex pair
+```python
 python bot/bot.py --symbol EURUSD=X --timeframe 1d --period 6mo
+```
 
 # Analyze Apple stock
+```python
 python bot/bot.py --symbol AAPL --timeframe 1d --period 3mo
-Expected Output
+```
+## Expected Output
 yaml AI Model Loaded Successfully
 Model Inputs:
   - image_input: ['unk__21', 256, 256, 1]
