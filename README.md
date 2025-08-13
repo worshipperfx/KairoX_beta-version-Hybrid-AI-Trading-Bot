@@ -116,12 +116,16 @@ Images: 256×256 grayscale candlestick pattern screenshots
 Labels: Binary trade outcomes (BUY/SELL) and TP/SL classifications
 
 ```
+
+```plain text
 Architecture
 Image Input (256×256×1) → Conv2D → MaxPool → Flatten ┐
                                                       ├→ Concatenate → Dense → Output
 Tabular Input (15 features) → Dense → Dense ────────┘
 Input Construction
 Image Input (1, 256, 256, 1)
+
+```
 
 Extract last N candles (3-7) of OHLC data
 Normalize values to [0, 1] range
