@@ -127,12 +127,15 @@ Image Input (1, 256, 256, 1)
 
 ```
 
+```plain text
+
 Extract last N candles (3-7) of OHLC data
 Normalize values to [0, 1] range
 Convert to grayscale representation
 Resize to 256×256 using OpenCV
 Add batch and channel dimensions
 
+```
 Tabular Input (1, 15)
 pythonfeatures = [
     "open", "high", "low", "close", "volume",
@@ -175,12 +178,27 @@ onnx_model, _ = tf2onnx.convert.from_keras(
 )
 onnx.save_model(onnx_model, "trading_model.onnx")
 
-🛠Troubleshooting
-IssueSolutionOpenCV resize error (!dsize.empty())Check array dimensions before resize. Only resize 2D arrays.ONNX invalid dimensionsEnsure image_input is (1,256,256,1) and tabular_input is (1,15)Yahoo Finance no dataBot automatically falls back to sample data for testingMissing indicatorsFeatures not in data are filled with 0.0 automatically
+## Troubleshooting
 
-📊 Performance Metrics
-MetricTrainingValidationAccuracy98.5%72.3%Precision96.2%68.9%Recall94.8%70.1%F1-Score95.5%69.5%
-Note: High training accuracy suggests potential overfitting - model needs more diverse data
+| Issue                                   | Solution                                                                 |
+|-----------------------------------------|--------------------------------------------------------------------------|
+| OpenCV resize error `(!dsize.empty())`  | Check array dimensions before resize. Only resize 2D arrays.             |
+| ONNX invalid dimensions                 | Ensure `image_input` is `(1,256,256,1)` and `tabular_input` is `(1,15)`. |
+| Yahoo Finance no data                   | Bot automatically falls back to sample data for testing.                 |
+| Missing indicators                      | Features not in data are filled with `0.0` automatically.                |
+
+
+## 📊 Performance Metrics
+
+| Metric     | Training | Validation |
+|------------|----------|------------|
+| Accuracy   | 98.5%    | 72.3%      |
+| Precision  | 96.2%    | 68.9%      |
+| Recall     | 94.8%    | 70.1%      |
+| F1-Score   | 95.5%    | 69.5%      |
+
+> **Note:** High training accuracy suggests potential overfitting – model may need more diverse data.
+
 
 🗺️ Roadmap
 
