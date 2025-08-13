@@ -1,27 +1,44 @@
 # KairoX_beta-version-Hybrid-AI-Trading-Bot
-Hybrid AI Trading Bot: This a beta version of my first edition of my Trading Algorithm that is used to predict forex, stock and crypto market trades for pro traders automating the whole process
-Multi-modal trading research bot that detects candlestick patterns from historical market data using a dual-input ONNX model (image + tabular features). Trained in Kaggle, deployed anywhere with ONNX Runtime.
+This is a **beta version** of my first edition Trading Algorithm designed to predict **forex, stock, and crypto** trades for pro traders, automating the entire process.
 
-RISK DISCLAIMER: Trading and investing in financial markets involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. This software is provided for research and educational purposes only. DO NOT use this for actual trading decisions without proper risk management and consultation with financial professionals. The creators of this software are not responsible for any financial losses incurred through its use. USE AT YOUR OWN RISK
+A **multi-modal trading research bot** that detects candlestick patterns from historical market data using a **dual-input ONNX model** (image + tabular features). Trained in **Kaggle**, deployable anywhere with **ONNX Runtime**.
 
+---
 
-## Features
+> ⚠️ **RISK DISCLAIMER:**  
+> Trading and investing in financial markets involves substantial risk of loss and is not suitable for all investors.  
+> Past performance is not indicative of future results.  
+> This software is provided for research and educational purposes only.  
+> **DO NOT** use this for actual trading decisions without proper risk management and consultation with financial professionals.  
+> The creators of this software are not responsible for any financial losses incurred through its use. **USE AT YOUR OWN RISK.**
 
-Multi-modal AI: Combines candlestick pattern images with technical indicators
-Universal deployment: ONNX model runs anywhere (Python, C++, JavaScript, mobile)
-Multi-asset support: Forex, crypto, stocks, commodities via Yahoo Finance
-Fast inference: Optimized ONNX runtime for production use
-Robust data handling: Automatic fallbacks when external APIs fail
-Real market data: Historical analysis using yfinance integration
+---
 
+##  Features
 
-## Architecture
+- **Multi-modal AI:** Combines candlestick pattern images with technical indicators  
+- **Universal deployment:** ONNX model runs anywhere (Python, C++, JavaScript, mobile)  
+- **Multi-asset support:** Forex, crypto, stocks, commodities via Yahoo Finance  
+- **Fast inference:** Optimized ONNX runtime for production use  
+- **Robust data handling:** Automatic fallbacks when external APIs fail  
+- **Real market data:** Historical analysis using yfinance integration  
+
+---
+
+##  Architecture
+
 Historical Data (yfinance) → Image Builder → ONNX Model → Trade Decision
-                          ↘ Feature Engine ↗
-## Model Inputs:
+↘ Feature Engine ↗
 
-image_input: (1, 256, 256, 1) - Grayscale candlestick pattern
-tabular_input: (1, 15) - Technical indicators & OHLC data
+yaml
+
+---
+
+## 📥 Model Inputs
+
+```plaintext
+image_input: (1, 256, 256, 1)  # Grayscale candlestick pattern
+tabular_input: (1, 15)         # Technical indicators & OHLC data
 
 ## Output:
 
