@@ -147,17 +147,54 @@ features = [
     "Bollinger_Upper", "Bollinger_Lower",
     "ATR", "ADX"
 ]
+Missing indicators are automatically filled with 0.0.
 
+Training & Export
+1) Prepare Training Environment (Kaggle)
+bash
+Copy
+Edit
+# Install dependencies in Kaggle notebook
+pip install tf2onnx tensorflow scikit-learn
+2) Train the Model
+python
+Copy
+Edit
+# Load and preprocess data
+tabular_data = load_trading_data()
+image_data = load_pattern_images()
 
-## Troubleshooting
+# Build dual-input model
+model = create_multimodal_model()
 
-| Issue                                   | Solution                                                                 |
-|-----------------------------------------|--------------------------------------------------------------------------|
-| OpenCV resize error `(!dsize.empty())`  | Check array dimensions before resize. Only resize 2D arrays.             |
-| ONNX invalid dimensions                 | Ensure `image_input` is `(1,256,256,1)` and `tabular_input` is `(1,15)`. |
-| Yahoo Finance no data                   | Bot automatically falls back to sample data for testing.                 |
-| Missing indicators                      | Features not in data are filled with `0.0` automatically.                |
+# Fit
+model.fit([image_data, tabular_data], labels, epochs=10)
 
+# Save Keras model
+model.save("trading_model.h5")
+3) Export to ONNX
+python
+Copy
+Edit
+import tensorflow as tf
+import tf2onnx
+import onnx
+
+# Define input signatures
+input_signature = [
+    tf.TensorSpec((None, 256, 256, 1), tf.float32, name="image_input"),
+    tf.TensorSpec((None, 15), tf.float32, name="tabular_input"),
+]
+
+# Convert to ONNX
+onnx_model, _ = tf2onnx.convert.from_keras(
+    model,
+    input_signature=input_signature,
+    opset=13
+)
+
+# Save ONNX model
+onnx.save_model(onnx_model, "trading_model.onnx")
 
 ## 📊 Performance Metrics
 
