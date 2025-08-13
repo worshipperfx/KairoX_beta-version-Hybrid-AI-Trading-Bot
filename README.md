@@ -30,9 +30,6 @@ A **multi-modal trading research bot** that detects candlestick patterns from hi
 Historical Data (yfinance) → Image Builder → ONNX Model → Trade Decision
 ↘ Feature Engine ↗
 
-yaml
-
----
 
 ## 📥 Model Inputs
 
