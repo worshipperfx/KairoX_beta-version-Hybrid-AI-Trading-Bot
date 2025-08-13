@@ -76,20 +76,22 @@ python bot/bot.py --symbol EURUSD=X --timeframe 1d --period 6mo
 python bot/bot.py --symbol AAPL --timeframe 1d --period 3mo
 ```
 ## Expected Output
-yaml AI Model Loaded Successfully
+``` yaml AI Model Loaded Successfully
 Model Inputs:
   - image_input: ['unk__21', 256, 256, 1]
   - tabular_input: ['unk__22', 15]
+```
 
-Fetching historical data for BTC-USD (1d, 1y)...
-Historical data ready: 366 rows
-
+# Fetching historical data for BTC-USD (1d, 1y)...
+   Historical data ready: 366 rows
+```python
 TRADE ALERT: BTC-USD (1d)
     • Trade Type: BUY
     • Probability: 0.7321
     • Entry Price: $45,234.56
     • Time: 2025-08-10 00:00:00
     • Candles Used: 7
+```
 
 📁## Project Structure
 ```plaintext
