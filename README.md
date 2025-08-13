@@ -195,7 +195,7 @@ onnx_model, _ = tf2onnx.convert.from_keras(
 
 # Save ONNX model
 onnx.save_model(onnx_model, "trading_model.onnx")
-**Python**
+```
 
 ## 📊 Performance Metrics
 
