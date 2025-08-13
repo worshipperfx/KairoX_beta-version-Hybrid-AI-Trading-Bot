@@ -83,7 +83,8 @@ TRADE ALERT: BTC-USD (1d)
     • Time: 2025-08-10 00:00:00
     • Candles Used: 7
 
-📁 Project Structure
+📁## Project Structure
+```plaintext
 ai-trading-pattern-detector/
 ├── bot/
 │   ├── __init__.py
@@ -114,6 +115,7 @@ Tabular: 100 real trading scenarios with encoded features
 Images: 256×256 grayscale candlestick pattern screenshots
 Labels: Binary trade outcomes (BUY/SELL) and TP/SL classifications
 
+```
 Architecture
 Image Input (256×256×1) → Conv2D → MaxPool → Flatten ┐
                                                       ├→ Concatenate → Dense → Output
