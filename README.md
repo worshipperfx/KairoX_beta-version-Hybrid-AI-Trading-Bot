@@ -149,17 +149,17 @@ features = [
 ]
 Missing indicators are automatically filled with 0.0.
 
+```
 Training & Export
 1) Prepare Training Environment (Kaggle)
-bash
-Copy
-Edit
+
+```python
 # Install dependencies in Kaggle notebook
 pip install tf2onnx tensorflow scikit-learn
+```
+
 2) Train the Model
-python
-Copy
-Edit
+```python
 # Load and preprocess data
 tabular_data = load_trading_data()
 image_data = load_pattern_images()
@@ -172,10 +172,11 @@ model.fit([image_data, tabular_data], labels, epochs=10)
 
 # Save Keras model
 model.save("trading_model.h5")
+```
+
 3) Export to ONNX
-python
-Copy
-Edit
+
+```python
 import tensorflow as tf
 import tf2onnx
 import onnx
