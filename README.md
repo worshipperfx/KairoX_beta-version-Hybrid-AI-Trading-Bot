@@ -33,7 +33,6 @@ Historical Data (yfinance) → Image Builder → ONNX Model → Trade Decision
 
 ## 📥 Model Inputs
 
-```plaintext
 image_input: (1, 256, 256, 1)  # Grayscale candlestick pattern
 tabular_input: (1, 15)         # Technical indicators & OHLC data
 
